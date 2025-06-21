@@ -41,10 +41,14 @@ export const getURLParams = () => {
   const urlParams = new URLSearchParams(window.location.search);
   const fullTextureParam = urlParams.get("fullTexture");
   const logoTextureParam = urlParams.get("logoTexture");
+  const designUrl = urlParams.get("design");
+  const logoUrl = urlParams.get("logo");
+
+  const logoDataURL = atob(logoUrl);
 
   return {
-    designUrl: urlParams.get("design"),
-    logoUrl: urlParams.get("logo"),
+    designUrl: designUrl,
+    logoUrl: logoDataURL,
     color: urlParams.get("color"),
     isFullTexture:
       fullTextureParam !== null ? fullTextureParam === "true" : null,
