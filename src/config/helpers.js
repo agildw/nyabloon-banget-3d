@@ -44,7 +44,10 @@ export const getURLParams = () => {
   const designUrl = urlParams.get("design");
   const logoUrl = urlParams.get("logo");
 
-  const logoDataURL = atob(logoUrl);
+  let logoDataURL = null;
+  if (logoUrl) {
+    logoDataURL = atob(logoUrl);
+  }
 
   return {
     designUrl: designUrl,

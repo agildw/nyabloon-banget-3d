@@ -1,9 +1,10 @@
 import { Canvas } from "@react-three/fiber";
-import { Environment, Center } from "@react-three/drei";
+import { Environment, Center, Stage } from "@react-three/drei";
 
 import Shirt from "./Shirt";
 import Backdrop from "./Backdrop";
 import CameraRig from "./CameraRig";
+import { Suspense } from "react";
 
 const CanvasModel = () => {
   return (
@@ -14,8 +15,12 @@ const CanvasModel = () => {
       className="w-full max-w-full h-full transition-all ease-in"
     >
       <ambientLight intensity={0.5} />
-      <Environment preset="city" background />
+      {/* <Suspense fallback={null}> */}
+      {/* <Environment preset="city" background /> */}
+      {/* potsdamer_platz_1k.hdr */}
+      <Environment files={"/public/potsdamer_platz_1k.hdr"} background />
 
+      {/* </Suspense> */}
       <CameraRig>
         <Backdrop />
         <Center>
